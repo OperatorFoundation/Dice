@@ -18,6 +18,12 @@ public struct SecRandomNumberGenerator: RandomNumberGenerator {
         }
     }
 }
+#else
+public struct SecRandomNumberGenerator: RandomNumberGenerator {
+    public func next() -> UInt64 {
+        return UInt64.random(in: 0...UInt64.max)
+    }
+}
 #endif
 
 public extension Data
