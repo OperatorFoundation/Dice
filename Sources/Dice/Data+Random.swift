@@ -7,7 +7,7 @@
 
 import Foundation
 
-#if canImport(CoreFoundation)
+#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
 public struct SecRandomNumberGenerator: RandomNumberGenerator {
     public func next() -> UInt64 {
         let size = MemoryLayout<UInt64>.size
